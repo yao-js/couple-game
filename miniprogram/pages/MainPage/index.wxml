@@ -1,4 +1,4 @@
-<view style="width:100%; background: none;">
+<view class="page">
 
   <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" style="background: white; height: 200px; width: 100%;">
       <swiper-item><image src="Images/HomeCover01.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
@@ -6,32 +6,60 @@
       <swiper-item><image src="Images/HomeCover03.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
   </swiper>
 
-<view class="form-group_label">💰 积分榜</view>
-    <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
-    <view class="form-cell">
-        <view class="slide">
-        <view class="title">{{userA}}的积分：{{creditA}}</view>
-        </view>
-    </view>
-    <view class="form-cell">
-        <view class="slide">
-        <view class="title">{{userB}}的积分：{{creditB}}</view>
-        </view>
-    </view>
-</view>
+  <!-- <view class="form-group_label">欢迎回来</view> -->
 
-<view class="form-group_label">🐻 欢迎回来</view>
-  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
-    <view class="form-cell">
-      <view class="slide">
-        <view class="title">欢迎！蓝卡比和红卡比！</view>
-      </view>
+  <view class="container">
+  <form class="userForm" bindsubmit="formSubmit">
+    <view class="forPosition">
+      <input class="inputBox" placeholder="{{text}}" bindfocus="inputFocus" bindblur="inputBlur" name="userInput" value="{{inputContent}}"></input>
+      <picker class="pickerBox" mode="date" name="inputDay" bindchange="showTime">{{defaultMessage}}</picker>
     </view>
-    <view class="form-cell">
-      <view class="slide">
-        <view class="title">今天想做什么呢？</view>
+    <button class="addBtn" form-type="submit" bindtap="addBtn" style="width:12%">Add</button>
+    <!-- <button class="addBtn" form-type="submit" bindtap="addBtn">Add</button> -->
+  </form>
+
+  <view class="souvenirContent">
+    <view class="souvenirtList" wx:for="{{list}}" wx:key="{{item}}">
+      <view class="information">
+        <text>{{item.name}} {{item.word}}</text>
+        <text>{{item.day}} 天</text>
+      </view>
+      <view class="delete">
+        <image src="./Images/delete.png" bindtap="deleteBtn" data-souvenir-id="{{item.id}}"></image>
       </view>
     </view>
   </view>
+</view>
+
+  <!-- <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);"> -->
+    <!-- <view class="form-cell">
+      <view class="slide">
+        <view class="title">欢迎！今天想做什么呢？</view>
+      </view>
+    </view> -->
+    <!-- <view class="form-cell">
+      <view class="slide">
+        <view class="title">今天想做什么呢？</view>
+      </view>
+    </view> -->
+  <!-- </view> -->
+
+<!-- <view class="form-group_label">💰 积分榜</view>
+    <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell">
+        <view class="slide">
+        <view class="title_xiongxiong">🐻 {{userA}}的积分：{{creditA}}</view>
+        <view class="title_mimi">🐸 {{userB}}的积分：{{creditB}}</view>
+        </view>
+
+    </view>
+    
+</view> -->
+
+<!-- <view class="form-cell">
+        <view class="slide">
+        <view class="title">{{userB}}的积分：{{creditB}}</view>
+        </view>
+    </view> -->
 
 </view>

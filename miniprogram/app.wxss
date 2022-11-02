@@ -50,8 +50,9 @@ button::after {
 
 .form-group_label {
   align-self: flex-start;
-  margin-top: 20px;
-  margin-left: 20px;
+  text-align: center;
+  /* margin-top: 20px; */
+  /* margin-left: 20px; */
   color: #8D8D8D;
   font-size: 15px;
 }
